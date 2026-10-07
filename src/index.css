@@ -7,6 +7,7 @@
 :root {
   --layout-max-width: 1400px;
   --layout-gutter: 24px;
+  --section-gap: 90px;
 }
 
 body {
