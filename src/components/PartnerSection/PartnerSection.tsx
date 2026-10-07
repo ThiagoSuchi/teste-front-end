@@ -1,7 +1,7 @@
 import partnerImage from '../../assets/images/Mask Group.png'
-import './PartinerSection.scss'
+import './PartnerSection.scss'
 
-function PartinerSection() {
+function PartnerSection() {
   return (
     <section className="partner-section" aria-labelledby="partner-section-title">
       <div className="partner-section__list layout-container">
@@ -27,4 +27,4 @@ function PartinerSection() {
   )
 }
 
-export default PartinerSection
+export default PartnerSection

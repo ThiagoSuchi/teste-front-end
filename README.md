@@ -43,7 +43,7 @@ src/
 │   ├── Header/
 │   ├── MainBanner/
 │   ├── Newsletter/
-│   ├── PartinerSection/
+│   ├── PartnerSection/
 │   ├── ProductCard/
 │   ├── ProductModal/
 │   └── ProductSection/

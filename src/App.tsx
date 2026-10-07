@@ -4,7 +4,7 @@ import MainBanner from './components/MainBanner/MainBanner'
 import CategoryList from './components/CategoryList/CategoryList'
 import ProductSection from './components/ProductSection/ProductSection'
 import ProductModal from './components/ProductModal/ProductModal'
-import PartinerSection from './components/PartinerSection/PartinerSection'
+import PartnerSection from './components/PartnerSection/PartnerSection'
 import BrandList from './components/BrandList/BrandList'
 import Newsletter from './components/Newsletter/Newsletter'
 import Footer from './components/Footer/Footer'
@@ -37,13 +37,13 @@ function App() {
         products={products}
         onProductClick={setSelectedProduct}
       />
-      <PartinerSection />
+      <PartnerSection />
       <ProductSection
         products={products}
         onProductClick={setSelectedProduct}
         showCategories={false}
       />
-      <PartinerSection />
+      <PartnerSection />
       <BrandList />
       <ProductSection
         products={products}
