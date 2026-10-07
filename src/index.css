@@ -4,6 +4,17 @@
   box-sizing: border-box;
 }
 
+:root {
+  --layout-max-width: 1400px;
+  --layout-gutter: 24px;
+}
+
 body {
   font-family: Arial, sans-serif;
+}
+
+.layout-container {
+  width: min(var(--layout-max-width), calc(100% - (var(--layout-gutter) * 2)));
+  margin-right: auto;
+  margin-left: auto;
 }

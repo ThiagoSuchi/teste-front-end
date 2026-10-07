@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 import Header from './components/Header/Header'
 import MainBanner from './components/MainBanner/MainBanner'
+import CategoryList from './components/CategoryList/CategoryList'
+import ProductSection from './components/ProductSection/ProductSection'
+import ProductModal from './components/ProductModal/ProductModal'
 import { getProducts } from './services/products'
 import type { Product } from './types/Product'
 
 function App() {
   const [products, setProducts] = useState<Product[]>([])
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
 
   useEffect(() => {
     async function loadProducts() {
@@ -24,18 +28,15 @@ function App() {
     <>
       <Header />
       <MainBanner />
-
-      <main>
-        <h1>Produtos</h1>
-
-        <ul>
-          {products.map((product) => (
-            <li key={product.productName}>
-              {product.productName} - R$ {product.price}
-            </li>
-          ))}
-        </ul>
-      </main>
+      <CategoryList />
+      <ProductSection
+        products={products}
+        onProductClick={setSelectedProduct}
+      />
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
     </>
   )
 }

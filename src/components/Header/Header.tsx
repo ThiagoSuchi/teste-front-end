@@ -12,7 +12,7 @@ import userCircle from '../../assets/icons/UserCircle.png'
 function Header() {
   return (
     <header className="header">
-      <div className="header__top">
+      <div className="header__top layout-container">
         <div className="header__benefit">
           <img src={shieldCheck} alt="" />
           <span>
@@ -35,7 +35,7 @@ function Header() {
         </div>
       </div>
 
-      <div className="header__main">
+      <div className="header__main layout-container">
         <a className="header__brand" href="/" aria-label="eConverse">
           <img src={brand} alt="eConverse" />
         </a>
@@ -72,7 +72,7 @@ function Header() {
       </div>
 
       <nav className="header__nav" aria-label="Navegação principal">
-        <ul>
+        <ul className="layout-container">
           <li>
             <a href="/">Todas categorias</a>
           </li>

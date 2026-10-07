@@ -7,7 +7,7 @@ function MainBanner() {
       <img className="main-banner__image" src={banner} alt="" />
       <div className="main-banner__overlay" />
 
-      <div className="main-banner__content">
+      <div className="main-banner__content layout-container">
         <h1>Venha conhecer nossas promoções</h1>
         <p>
           <strong>50% Off</strong> nos produtos
