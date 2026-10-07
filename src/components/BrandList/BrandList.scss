@@ -1,0 +1,136 @@
+.brand-list {
+    width: 100%;
+    margin-top: var(--section-gap);
+    padding: 0;
+    background: #ffffff;
+    font-family: Poppins, Arial, sans-serif;
+
+    &__inner {
+        text-align: center;
+    }
+
+    h2 {
+        margin: 0 0 34px;
+        color: #3442b5;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 45px;
+    }
+
+    &__showcase {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: min(1112px, calc(100% - 128px));
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 192px;
+        height: 192px;
+        flex: 0 0 192px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.14);
+
+        img {
+            display: block;
+            width: 126px;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+        cursor: default;
+        transform: translateY(-50%);
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border-top: 3px solid #3f3f40;
+            border-right: 3px solid #3f3f40;
+            content: '';
+        }
+
+        &--previous {
+            left: 8px;
+
+            &::before {
+                transform: translate(-35%, -50%) rotate(-135deg);
+            }
+        }
+
+        &--next {
+            right: 8px;
+
+            &::before {
+                transform: translate(-65%, -50%) rotate(45deg);
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        &__items {
+            width: calc(100% - 96px);
+            gap: 20px;
+            overflow: hidden;
+            justify-content: flex-start;
+        }
+
+        &__item {
+            width: 160px;
+            height: 160px;
+            flex-basis: 160px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        h2 {
+            font-size: 26px;
+        }
+
+        &__items {
+            width: calc(100% - 72px);
+        }
+
+        &__item {
+            width: 132px;
+            height: 132px;
+            flex-basis: 132px;
+
+            img {
+                width: 100px;
+            }
+        }
+
+        &__arrow {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}
