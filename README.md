@@ -1,75 +1,120 @@
-# React + TypeScript + Vite
+# Teste Front-End Econverse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido como teste técnico para o processo seletivo da vaga
+Front-End da Econverse.
 
-Currently, two official plugins are available:
+## Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- TypeScript
+- Sass
+- Vite
+- ESLint
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Exibição de produtos consumidos do JSON de produtos da Econverse.
+- Vitrines reutilizáveis de produtos com `ProductCard`.
+- Navegação horizontal nas vitrines por meio das setas.
+- Abertura de modal ao selecionar um produto.
+- Exibição, no modal, da imagem, nome, descrição, preço e quantidade do produto.
+- Fechamento do modal pelo botão, pelo overlay externo ou pela tecla `Escape`.
+- Formatação dos preços no padrão brasileiro (`pt-BR` e `BRL`).
+- Seções de categorias, parceiros e marcas.
+- Newsletter com campos de nome, e-mail e aceite dos termos.
+- Footer com navegação institucional e ícones de redes sociais.
+- Layout responsivo para diferentes tamanhos de tela.
 
-## Expanding the ESLint configuration
+O formulário da Newsletter possui apenas comportamento visual nesta etapa e
+impede o recarregamento padrão da página. Não há envio real de e-mails.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Estrutura do projeto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```text
+src/
+├── assets/
+│   ├── categories/
+│   ├── icons/
+│   └── images/
+├── components/
+│   ├── BrandList/
+│   ├── CategoryList/
+│   ├── Footer/
+│   ├── Header/
+│   ├── MainBanner/
+│   ├── Newsletter/
+│   ├── PartinerSection/
+│   ├── ProductCard/
+│   ├── ProductModal/
+│   └── ProductSection/
+├── services/
+│   └── products.ts
+├── types/
+│   └── Product.ts
+├── utils/
+│   └── formatCurrency.ts
+├── App.tsx
+├── index.css
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+- `App.tsx`: organiza as seções da página, carrega os produtos e controla o
+  produto selecionado no modal.
+- `components/`: reúne os componentes visuais da página e seus estilos Sass.
+- `services/products.ts`: busca e retorna os produtos do JSON.
+- `types/`: contém as interfaces TypeScript dos dados.
+- `utils/formatCurrency.ts`: centraliza a formatação de valores em reais.
+- `assets/`: contém as imagens e os ícones utilizados pela aplicação.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Como executar o projeto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Instale as dependências:
 
+```bash
+npm install
 ```
+
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+O Vite disponibilizará a aplicação no endereço informado no terminal.
+
+## Build de produção
+
+Para gerar a versão de produção:
+
+```bash
+npm run build
+```
+
+Para visualizar o build localmente:
+
+```bash
+npm run preview
+```
+
+Também é possível validar o código com:
+
+```bash
+npm run lint
+```
+
+## Observações
+
+- Durante o desenvolvimento, o Vite encaminha `/api-produtos/produtos.json`
+  para o endpoint de produtos da Econverse.
+- As setas da seção de marcas são visuais nesta versão e não implementam
+  carrossel funcional.
+- A Newsletter não possui integração de envio.
+- Os links institucionais e de redes sociais estão representados
+  visualmente conforme o layout; não há integrações de destino implementadas.
+- Os textos de apoio em Lorem ipsum foram mantidos onde aparecem na referência
+  visual e não representam conteúdo funcional adicional.
+
+## Créditos
+
+Desenvolvido por **Thiago Hens Suchi** para o processo seletivo/teste técnico
+da Econverse.
